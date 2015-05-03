@@ -1,0 +1,288 @@
+html{
+    font: normal 62.5%/1.5 $font-stack;
+    color: $txt-color;
+}
+
+body {
+    font-size: 1.6rem;
+    // background-color: $bg;
+}
+
+
+#formario {
+    position: relative;
+    padding: 20px;
+    // min-height: 500px;
+    background: $bg;
+
+    &::after {
+        content:'';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 48px;
+        background: url('../img/smb-ground-block.png');
+    }
+
+    h1 {
+        width: 430px;
+        margin: 40px auto;
+        padding: .3em;
+        padding-top: 0em;
+        font: normal 5rem/1.3 $font-stack-title;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        text-align: left;
+        text-shadow: $shadow-bros;
+        background: $headline-bg;
+        border: 4px solid $headline;
+        border-bottom-color: #000; 
+        border-right-color: #000; 
+
+        span {
+            padding-left: .48em;
+            display: inline-block;
+            text-transform: lowercase;
+        }
+
+        a {
+            color: $headline;
+            text-decoration: none;
+        }
+    }
+
+    fieldset {
+        margin: 60px auto 0;
+        width: 320px;
+        // height: 100px;
+        padding: 0;
+        border: none;
+        // border: 1px solid rgba(#fff, .2); // delete me after testing
+    }
+
+    legend {
+        font-size: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    label {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin-top: 40px;
+        animation: txtblink 1s linear 0 infinite;
+    }
+
+    input {
+        float: right;
+        padding: 0;
+        color: $txt-color;
+        background: none;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #fff;
+        animation: none;
+        z-index: 15;
+
+        &:hover,
+        &:focus {
+            background: none;
+        }
+    }
+
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        left: 260px;
+        bottom: 4px;
+        height: 2em;
+        vertical-align: top;
+        background: url('../img/smb-question-box-middle-block.png');
+        border: none;
+        text-transform: uppercase;
+        font-size: .8rem;
+        line-height: 2.25;
+        text-shadow: $shadow-bros-s;
+        color: $button-color;
+        // padding-bottom: 2px;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            margin-right: .5em;
+            width: 2em;
+            height: 2em;
+            background: url('../img/smb-question-box-left-block.png');
+            // z-index: 3;
+            // background-size: 100%;
+        }
+
+        &::after {
+            content: '';
+            display: inline-block;
+            margin-left: .5em;
+            width: 2em;
+            height: 2em;
+            background: url('../img/smb-question-box-right-block.png');
+            // background-size: 100%;
+        }
+
+    }
+
+    .secret__blocks {
+        position: absolute;
+        width: 96px;
+        bottom: -14px;
+        right: 0;
+        line-height: 1.2;
+        z-index: 2;
+    }
+
+    .hidden__blocks {
+
+        img {
+            position: relative;
+            opacity: 0;
+
+            &.reveal {
+                animation: revealblock .2s linear 0 forwards;
+            }
+        }
+    }
+
+    .hidden__coins {
+        position: relative;
+        // top: 16px;
+        z-index: -1;
+
+        .hidden__coins--coin {
+            display: inline-block;
+            width: 16px;
+            height: 14px;
+            position: relative;
+            opacity: 0;
+            background: url('../img/smb-coin-flip.png') no-repeat;
+            background-position: 50% 0;
+        }
+    }
+
+    .pipe {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        right: 215px;
+        bottom: 28px;
+    }
+
+    .mario {
+        position: absolute;
+        bottom: -53px;
+        right: 380px;
+        width: 17px;
+        height: 16px;
+        background: url('../img/smb-mario.png');
+        background-position: 0 0;
+
+        &.jumping {
+            background-position: 0 64px;
+        }
+
+        &.walkright {
+                    animation: marioright .5s steps(1) 0s infinite;
+        }
+    }
+
+    .coinflip {
+                animation: coinmove .43s linear 0s, coinflip .43s steps(1) 0s
+    }
+
+    .mariotrack {
+        // border: 1px solid #fff;
+        max-width: 800px;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        margin: .5em auto;
+        height: 40px;
+        text-align: center;
+
+        .mariotrack-ctrl {
+            display: inline-block;
+            width: 25px;
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 40px;
+            font: 0/0 a;
+            background: url('../img/smb-sound-ctrl.png') no-repeat;
+            background-position: -25px center;
+        }
+
+        .mariotrack-shroomcloud {
+            display: inline-block;
+            height: 40px;
+            vertical-align: middle;
+            margin-left: 64px;
+
+            img {
+                margin: 4px 0;
+            }
+        }
+
+        span {
+            display: inline-block;
+            width: 450px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-indent: 0px;
+        }
+    }
+
+    audio {
+        // display: none;
+    }
+}
+
+/* Label */
+
+    @keyframes txtblink {
+          0% { color: rgba($txt-color,1); }
+         50% { color: rgba($txt-color,0); }
+        100% { color: rgba($txt-color,1); }
+    }
+
+/* Hidden blocks & coins */
+
+    @keyframes revealblock {
+          0% { opacity: 1; }
+        100% { bottom: 4px; }
+    }
+
+    @keyframes coinmove {
+          0% { bottom: 0px; opacity: 1; }
+         58% { bottom: 100px; }
+        100% { bottom: 50px; opacity: 1;
+        }
+    }
+
+    @keyframes coinflip {
+          0% { background-position: 50% 0; }
+         25% { background-position: 50% -15px; }
+         50% { background-position: 50% -30px; }
+         75% { background-position: 50% -45px; }
+        100% { background-position: 50% 0; }
+    }
+
+/* Mario */
+
+    @keyframes marioright {
+          0% { background-position: 0 -48px; }
+         25% { background-position: 0 -64px; }
+         50% { background-position: 0 -48px; }
+         75% { background-position: 0 -32px; }
+        100% { background-position: 0 -0px; }
+    }

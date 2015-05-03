@@ -1,0 +1,11 @@
+#sass
+.sass-cache
+
+#gulp
+node_modules
+
+#prod
+htdocs
+
+#resources
+resources
